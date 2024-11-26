@@ -1,0 +1,610 @@
+@use "variable"as v;
+@use "common"as c;
+/*************************************************
+top
+*************************************************/
+@keyframes zoomUp {
+  0% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1.15);
+  }
+}
+.p-top_mv .swiper-slide-active img,
+.p-top_mv .swiper-slide-duplicate-active img,
+.p-top_mv .swiper-slide-prev img {
+  animation: zoomUp 10s linear 0s 1 normal both;
+}
+
+.p-top_mv {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+  }
+  .mv01 {
+    img {
+      @include c.mq() {
+        object-position: 75%;
+      }
+    }
+  }
+  .mv02 {
+    img {
+      @include c.mq() {
+        object-position: 8%;
+      }
+    }
+  }
+  .mv03 {
+    img {
+      @include c.mq() {
+        object-position: 68%;
+      }
+    }
+  }
+  .mv04 {
+    img {
+      @include c.mq() {
+        object-position: 60%;
+      }
+    }
+  }
+  .c-txt {
+    position: absolute;
+    top: 42%;
+    left: 12%;
+    z-index: 2;
+    @include c.mq(){
+      left: 20px;
+    }
+    h1 {
+      width: 40.5rem;
+      @include c.mq(){
+        width: 75%;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        filter: v.$shadow03;
+      }
+    }
+  }
+  .postage{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(0);
+    width: 100%;
+    background: rgb(255,236,157);
+    background: linear-gradient(149deg, rgba(255,236,157,1) 0%, rgba(221,182,110,1) 100%);
+    z-index: 2;
+    padding:10px 0;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      gap: 1rem;
+    }
+    .postage-txt {
+      font-family: "Zen Old Mincho", serif;
+      font-size: 25px;
+      letter-spacing: 2px;
+      text-align: center;
+      font-weight: bold;
+      @include c.mq(){
+        font-size: 20px;
+      }
+      span{
+        font-size: 14px;
+        margin:0 5px;
+      }
+    }
+    .postage-cart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      width: 14.8rem;
+      height: auto;
+      font-family: v.$head-ttl;
+      font-size: 1.3rem;
+      line-height: 1;
+      letter-spacing: 1px;
+      background-color:  #3B0E01;
+      color: #fff;
+      border-radius: 2.1rem;
+      padding: 1rem 0;
+      margin-top: .5rem;
+      img {
+        width: 1.5rem;
+        height: auto;
+      }
+    }
+  }
+}
+
+.p-top_wrap01 {
+  padding: 16.9rem 0 38.2rem;
+  background-color: v.$bg-color;
+  background-image: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/top_img01.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  @include c.mq(){
+    padding: 5rem 0 18.2rem;
+    background-size: 150%;
+  }
+  .inner {
+    width: 50%;
+    max-width: 850px;
+    @include c.mq(){
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  .concept {
+    margin: 0 auto;
+    display: flex;
+    // gap: 10.2rem;
+    flex-direction: row-reverse;
+    height: 35.5rem;
+    padding-bottom: 5.5rem;
+    justify-content: space-around;
+    // margin-bottom: 5.5rem;
+    @include c.mq(){
+      flex-wrap: wrap;
+      height: initial;
+      flex-direction: column;
+      justify-content: initial;
+      align-content: space-around;
+      align-items: center
+    }
+  }
+  .ttl01 {
+    &::before {
+      content: "ABOUT SHIROMA SEIKA";
+    }
+    margin-left: 30px;
+    @include c.mq(){
+      margin-left: 35px;
+      margin-bottom: 60px;
+    }
+  }
+  p {
+    writing-mode: vertical-rl;
+    line-height: 3;
+    letter-spacing: 4px;
+    @include c.mq(){
+      line-height: 2;
+      // flex-basis: 100%;
+      height: 300px;
+    }
+  }
+  .btn {
+    margin-left: 3rem;
+    text-align: center;
+    margin:0 auto;
+  }
+}
+
+.p-top_wrap02 {
+  padding: 12.4rem 0 18.4rem;
+  @include c.mq(){
+    padding: 12.4rem 0 ;
+  }
+  .ttl01 {
+    margin: 0 auto 18.7rem;
+    &::before {
+      content: "FEATURES";
+    }
+    @include c.mq(){
+      margin: 0 auto 7rem;
+    }
+  }
+  .box {
+    display: flex;
+    gap: 10rem;
+    margin-bottom: 30.6rem;
+    @include c.mq(md) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include c.mq(){
+      gap: initial;
+      margin-bottom: 120px;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    .right {
+      position: relative;
+      @include c.mq(){
+        // flex-basis: 80%;
+        width: 100%;
+      }
+      .img-box {
+        width: 60rem;
+        height: 450px;
+        box-shadow: 20px 20px 30px rgba($color: #3B0E01, $alpha: .15);
+        border-radius: 10px;
+        @include c.mq(){
+          width: 85vw;
+          margin: 0 auto;
+          height: auto;
+        }
+        &:nth-of-type(2) {
+          position: absolute;
+          top: 7%;
+          left: 50%;
+          transform: rotate( 6deg) translateX(-50%);
+          z-index: -1;
+        }
+        &:nth-of-type(3) {
+          position: absolute;
+          top: -7%;
+          left: 50%;
+          transform: rotate(-6deg) translateX(-50%);
+          z-index: -2;
+
+        }
+      }
+    }
+    .left {
+      position: relative;
+      padding-top: 18rem;
+      @include c.mq(){
+        padding-top: 60px;
+        margin-bottom: 80px;
+        &:last-child{
+          margin-bottom: 0px;
+        }
+      }
+      &::before {
+        position: absolute;
+        top: -6rem;
+        right: -17rem;
+        content: "";
+        width: 35.6rem;
+        height: 23.9rem;
+        filter: v.$shadow01;
+        @include c.mq(){
+          top: 20rem;
+          right: 20px;
+          width: 30%;
+          // height: auto;
+          // display: none;
+        }
+      }
+      h2 {
+        margin-bottom: 3rem;
+        @include c.mq(){
+          img{
+            max-width: 80%;
+          }
+        }
+      }
+      p {
+        width: 34rem;
+        margin-bottom: 4rem;
+        line-height: 2.2;
+      }
+      a{
+        @include c.mq(){
+          justify-content:initial;
+        }
+      }
+    }
+  }
+  .beniimo {
+    .left {
+      &::before {
+        background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/beniimo-taruto_img01.png) no-repeat center / contain;
+        @include c.mq(){
+          top: 27rem;
+          right: 0;
+          width: 47%;
+        }
+      }
+    }
+  }
+  .sata {
+    flex-direction: row-reverse;
+    .left {
+      &::before {
+        top: -8rem;
+        left: -20rem;
+        background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/sata-andagi_img01.png) no-repeat center / contain;
+        @include c.mq(){
+          left: initial;
+          top: 22rem;
+          right: 0;
+          width: 45%;
+        }
+      }
+    }
+  }
+  .hateruma {
+    .left {
+      &::before {
+        right: -20rem;
+        background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/hateruma-kokuto_img01.png) no-repeat center / contain;
+        @include c.mq(){
+          left: initial;
+          top: 23rem;
+          right: 0;
+          width: 35%;
+        }
+      }
+    }
+  }
+}
+
+.p-top_wrap03 {
+  background-color: v.$bg-color;
+  padding: 161px 0 150px;
+  @include c.mq(){
+    padding: 100px 0 110px;
+  }
+  .ttl02 {
+    margin: 0 auto 8.9rem;
+    &::before {
+      content: "LINE UP";
+    }
+  }
+  .line-up {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    @include c.mq(){
+      gap: initial;
+    }
+    .box {
+      width: calc((100% / 3) - (6rem / 3));
+      height: 18.8rem;
+      border-radius: 10px;
+      background-color: #3B0E01;
+      overflow: hidden;
+      filter: v.$shadow01;
+      transition: all .3s;
+      @include c.mq(){
+        height: 130px;
+        width: 100%;
+        flex-basis: 100%;
+        margin-bottom: 30px;
+      }
+      &:hover {
+        a {
+          &::after {
+            content: "";
+            width: 10rem;
+          }
+          img {
+            transform: scale(1.1);
+            opacity: .9;
+          }
+        }
+      }
+      a {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: all .3s;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          content: "";
+          width: 26.3rem;
+          height: 4.1rem;
+          filter: v.$shadow02;
+          z-index: 1;
+        }
+        &::after {
+          content: "";
+          width: 6rem;
+          height: 1px;
+          background-color: #fff;
+          position: absolute;
+          bottom: 2.3rem;
+          right: 0;
+          transition: all .3s;
+        }
+        img {
+          opacity: .67;
+          transition: all .3s;
+        }
+      }
+      &:last-child{
+        @include c.mq(){
+          margin-bottom: 0px;
+        }
+      }
+    }
+    .beniimo {
+      a {
+        &::before {
+          background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/beniimo-taruto_ttl_white.svg) no-repeat center / contain;
+        }
+      }
+    }
+    .sata {
+      a {
+        &::before {
+          background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/sata-andagi_ttl_wite.svg) no-repeat center / contain;
+        }
+      }
+    }
+    .hateruma {
+      a {
+        &::before {
+          background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/hateruma-kokuto_ttl_white.svg) no-repeat center / contain;
+        }
+      }
+    }
+  }
+  .btn {
+    margin: 0 auto;
+  }
+}
+
+.p-top_wrap04 {
+  .inner {
+    padding: 15rem 0;
+    position: relative;
+    @include c.mq(){
+      padding: 12rem 20px v.pxtovw_sp(120);
+    }
+    &::before {
+      position: absolute;
+      top: -7.2rem;
+      left: -4.7rem;
+      content: "";
+      width: 30rem;
+      height: 15.7rem;
+      background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/sata-andagi_img03.png) no-repeat center / contain;
+      filter: v.$shadow01;
+      @include c.mq(){
+        width: 18rem;
+        left: 2rem;
+      }
+    }
+    // &::after {
+    //   position: absolute;
+    //   bottom: -7.6rem;
+    //   right: -10rem;
+    //   content: "";
+    //   width: 31.2rem;
+    //   height: 20.9rem;
+    //   background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/beniimo-taruto_img01.png) no-repeat center / contain;
+    //   filter: v.$shadow01;
+    // }
+  }
+  .link-area {
+    display: flex;
+    column-gap: 6rem;
+    row-gap: 4.9rem;
+    flex-wrap: wrap;
+    @include c.mq(){
+      column-gap: initial;
+      row-gap: initial;
+    }
+    .box {
+      position: relative;
+      width: calc((100% / 2) - (6rem / 2));
+      height: 18.8rem;
+      border-radius: 10px;
+      filter: v.$shadow01;
+      background-color: #3B0E01;
+      overflow: hidden;
+      @include c.mq(){
+        flex-basis: 100%;
+        height: 130px;
+        margin-bottom: 20px;
+      }
+      p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-family: v.$head-ttl;
+        font-size: 2.4rem;
+        line-height: 1.5;
+        letter-spacing: 5px;
+        text-align: center;
+        color: #fff;
+        z-index: 1;
+        @include c.mq(){
+          width: 100%;
+          font-size: 2rem;
+        }
+        span {
+          font-family: v.$nomal-txt;
+          font-size: 1.5rem;
+          letter-spacing: 2px;
+        }
+      }
+      a {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        &:hover {
+          img {
+            opacity: .8;
+            transform: scale(1.1);
+          }
+        }
+        &::before {
+          content: "";
+          width: 97%;
+          height: 90%;
+          border: 1px solid #fff;
+          border-radius: 10px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          filter: none;
+          z-index: 2;
+        }
+        img {
+          opacity: .47;
+          transition: all .3s;
+        }
+      }
+      &:nth-of-type(3) {
+        width: 100%;
+        @include c.mq(){
+          height: 150px;
+          margin-bottom: 00px;
+        }
+        a {
+          &::before {
+            width: 98.5%;
+            height: 90%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loader-wrap {
+  display: none;
+}
+.anime-loader-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://cdn.shopify.com/s/files/1/0628/4594/3865/files/bg_filter.png) no-repeat center/cover;
+  background-color: v.$bg-color;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 9999;
+  .anime-img-wrap {
+    width: 11.5rem;
+    overflow: hidden;
+    @include c.mq() {
+      width: 7.5rem;
+    }
+    img {
+      transform: translateY(24rem);
+      @include c.mq() {
+        transform: translateY(14rem);
+      }
+    }
+  }
+}

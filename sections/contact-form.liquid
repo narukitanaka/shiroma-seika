@@ -1,0 +1,77 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message form-success-title" tabindex="-1" autofocus>
+          {% render 'icon-success' %}
+          お問い合わせありがとうございました。担当より折り返しご連絡いたします。
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body form-error-title" role="alert" tabindex="-1" autofocus>
+            {% render 'icon-error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+
+      <table class="form_table">
+        <tbody>
+          <tr>
+            <th>お名前</th>
+            <td><input type="text" name="contact[お名前]" id="" placeholder="例）城間　太郎"></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><input type="email" name="contact[email]" id="" placeholder="例）xxxxxx@sample.com"></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><input type="tel" name="contact[電話番号]" id="" placeholder="例）098-877-7143"></td>
+          </tr>
+          <tr>
+            <th>お問い合わせ内容</th>
+            <td><textarea name="contact[body]" id="" cols="30" rows="10"></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="contact_pp"><a href="/pages/privacy/" target="_blank">プライバシーポリシー</a>をご確認の上、「送信内容を確認」ボタンをクリックしてください。</p>
+      <div class="input_btn">
+        <input type="submit" value="送信する">
+        <div></div>
+      </div>
+      
+    {%- endform -%}
+  </div>
+</div>
+

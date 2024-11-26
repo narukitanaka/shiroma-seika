@@ -1,0 +1,128 @@
+<header class="is_pc pc-fix">
+  <div class="header_inner">
+    <div class="logo">
+      <a href="{{ routes.root_url }}">
+        <div class="img-box"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/logo.png" alt=""></div>
+      </a>
+      <p><a class="op1" href="/cart/"><span>5,000円以上で送料無料</span></a></p>
+    </div>
+    <div class="header-menu">
+      <ul class="menu">
+        <li><a href="/pages/about/">しろま製菓について</a></li>
+        <li class="has-child"><a href="/collections/all/">商品一覧</a></li>
+      </ul>
+      <div class="header_search-content">
+        <form method="get" action="/search">
+          <div class="header_search-inner">
+            <input type="text" name="q" placeholder="キーワードを入力">
+            <input type="hidden" name="type" value="product">
+            <input type="image" src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-serch.svg" alt="検索" class="icn-search">
+          </div>
+        </form>
+      </div>
+      <div class="header_icon_login">
+        <a href="/account/">
+          <img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-login.svg" alt="">
+          <p>ログイン</p>
+        </a>
+      </div>
+      <div class="header_icon_cart">
+        <a href="/cart/">
+          <img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-cart.svg" alt="">
+          <p>カート</p>
+        </a>
+      </div>
+    </div><!-- /.header-menu -->
+  </div><!-- /.header_inner-->
+  <div class="child-menu is_pc">
+    <ul>
+      <li><a href="/collections/all/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/child_menu_01.png" alt="">
+          <p>すべての商品</p>
+        </a></li>
+      <li><a href="/collections/beniimo-tart/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/child_menu_02.png" alt="">
+          <p>紅芋タルト</p>
+        </a></li>
+      <li><a href="/collections/sata-andagi/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/child_menu_03.png" alt="">
+          <p>サーターアンダギー</p>
+        </a></li>
+      <li><a href="/collections/hateruma-kokuto/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/child_menu_04.png" alt="">
+          <p>波照間産黒糖</p>
+        </a></li>
+    </ul>
+  </div>
+</header>
+
+<header class="sp_menu is_sp">
+  <div class="inner">
+    <div class="logo">
+      <a href="{{ routes.root_url }}"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/logo_sp.png" alt=""></a>
+      </div>
+    <div class="box">
+      <div class="ec">
+        <div><a href="/account/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-login.svg" alt=""></a></div>
+        <div><a href="/cart/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-cart.svg" alt=""></a></div>
+      </div>
+      <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="sp_menu_open is_sp">
+  <div class="wrap">
+    <div class="top">
+      <div class="logo">
+        <a href="{{ routes.root_url }}"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/logo_only_sp.png" alt=""></a>
+      </div>
+      <div class="box">
+        <div class="ec">
+          <div><a href="/account/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-login.svg" alt=""></a></div>
+          <div><a href="/cart/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-cart.svg" alt=""></a></div>
+        </div>
+        <div class="hamburger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="menu_box">
+      <ul>
+        <li><a href="{{ routes.root_url }}">TOP</a></li>
+        <li><a href="/pages/about/">しろま製菓について</a></li>
+        <li>
+          <a href="/collections/all/">商品一覧</a>
+          <ul>
+            <li><a href="/collections/beniimo-tart/">・紅芋タルト</a></li>
+            <li><a href="/collections/sata-andagi/">・サーターアンダギー</a></li>
+            <li><a href="/collections/hateruma-kokuto/">・波照間産黒糖</a></li>
+          </ul>
+        </li>
+        <li><a href="/pages/faq/">よくある質問</a></li>
+        <li><a href="/pages/company/">会社概要</a></li>
+        <li><a href="/pages/contact-form/">お問い合わせ</a></li>
+      </ul>
+      <div class="other">
+        <ul>
+          <li><a href="/pages/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/pages/terms/">特商法取引法の表示</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="serach_box">
+      <form method="get" action="/search">
+        <div class="header_search-inner">
+          <input type="text" name="q" placeholder="キーワードを入力">
+          <input type="hidden" name="type" value="product">
+          <input type="image" src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/icon-serch.svg" alt="検索" class="icn-search">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="delivery">
+    <a href="/cart/"><p>5,000<span>円以上(税込)ご購入で</span>送料無料</p></a>
+  </div>
+</nav>
+<div class="overlay is_sp"></div>

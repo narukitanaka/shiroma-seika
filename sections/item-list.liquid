@@ -1,0 +1,74 @@
+<section class="under_title">
+  <div class="inner">
+    <h1>{{ collection.title }}</h1>
+    <p class="sub-ttl">{{ collection.metafields.custom._sub-ttl }}</p>
+      <div class="products_category">
+        <ul>
+          <!-- cssのactiveを付与すれば色が変わる -->
+          <li><a {% if request.path contains '/all' %}class="active"{% endif %} href="/collections/all">全ての商品</a></li>
+          <li><a {% if request.path contains '/beniimo-tart' %}class="active"{% endif %} href="/collections/beniimo-tart"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/cat_beniimo.png" alt="">紅芋タルト</a></li>
+          <li><a {% if request.path contains '/sata-andagi' %}class="active"{% endif %} href="/collections/sata-andagi"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/cat_sata.png" alt="">サーターアンダギー</a></li>
+          <li><a {% if request.path contains '/hateruma-kokuto' %}class="active"{% endif %} href="/collections/hateruma-kokuto"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/cat_kokuto.png" alt="">波照間産黒糖</a></li>
+        </ul>
+      </div>
+  </div>
+</section>
+
+<section class="p-products_wrap">
+  
+  {% if cart.attributes.pagination != blank %}
+    {%- assign limit = cart.attributes.pagination %}
+  {% else %}
+    {% assign limit = 20 -%}
+  {% endif %}
+  {% paginate collection.products by limit %}
+
+    <div class="inner">
+      <div class="sort_area">
+        <div class="num">全{{ paginate.items }}件</div>
+        <ul>
+          <li><a href="{{ product.url }}?sort_by=best-selling" data-sort-by="best-selling" >おすすめ順</a></li>
+          <li><a href="{{ product.url }}?sort_by=created-descending" data-sort-by="created-descending">新着順</a></li>
+          <li><a href="{{ product.url }}?sort_by=price-ascending" data-sort-by="price-ascending">価格が安い順</a></li>
+          <li><a href="{{ product.url }}?sort_by=price-descending" data-sort-by="price-descending">価格が高い順</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="list_contents">
+      <ul class="list_area">
+        {% for product in collection.products %}
+        <li>
+          <a href="{{ product.url }}">
+            <div class="img_box"><img src="{{ product.featured_image.src | img_url: 'master' }}" alt=""></div>
+            <p>{{ product.title }}</p>
+            <p>{{ product.price | money }}<span>(税込)</span></p>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+
+    <!-- ページネーション -->
+    {% if paginate.pages > 1 %}
+      {% render "pagination", paginate: paginate %}
+    {% endif %}
+
+  {% endpaginate %}
+
+
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "item-list",
+    "presets": [
+      {
+        "name": "item-list"
+      }
+    ]
+  }
+{% endschema %}

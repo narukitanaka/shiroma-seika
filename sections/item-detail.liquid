@@ -1,0 +1,149 @@
+<section class="p-item-detail_wrap">
+  {% if product.collections %}
+    {% for collection in product.collections %}
+      {% if collection.handle  == 'sata-andagi' or collection.handle == 'beniimo-tart' %}
+        <section class="chokuso"><p>工場直送便 出来たてをお届けします！</p></section>
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  <div class="inner">
+    <div class="p-merchandise-detail">
+      <div class="p-merchandise__img-content">
+        <div class="p-merchandise__img-wrapper">
+          <div class="swiper-item">
+            <div class="swiper-wrapper">
+
+              {% for image in product.images %}
+                <div class="swiper-slide">
+                  <div class="p-img-wrapper">
+                    <img src="{{ image.src | img_url: 'master' }}" alt="">
+                  </div>
+                </div>
+              {%- endfor -%}
+
+            </div><!-- /.swiper-wrapper -->
+          </div><!-- /.swiper03 -->
+          <div class="thumb-list">
+            {% for image in product.images %}
+            <div class="thumb-item">
+              <a class="thumb-link" href="javascript:void(0);" onclick="thumbnail({{ forloop.index }})">
+                <img src="{{ image.src | img_url: 'master' }}" alt="">
+              </a>
+            </div>
+            {%- endfor -%}
+          </div><!-- /.thumb-list -->
+        </div><!-- /.p-merchandise__img-wrapper -->
+      </div><!-- /.left -->
+      <div class="p-merchandise__detail-content">
+
+        <p class="c-merchandise__name">{{ product.title }}</p>
+
+        {% if product.compare_at_price_max and product.compare_at_price_max > product.price %}
+          <p class="c-price"><span>¥</span>{{ product.compare_at_price_max | money_with_currency }}<span>（税込）</span></p>
+          <p class="c-price" style="color: #f00;">割引価格：<span>¥</span>{{ product.price | money_with_currency }}<span>（税込）</span></p>
+        {% else %}
+          <p class="c-price"><span>¥</span>{{ product.price | money_with_currency }}<span>（税込）</span></p>
+          </p>
+        {% endif %}
+
+        <p class="p-block__tex">
+          {{ product.content }}
+        </p>
+
+        {% if product.collections %}
+          {% for collection in product.collections %}
+            {% if collection.handle  == 'beniimo-tart' %}
+              <div class="banner">
+                <a href="/pages/beniimo-tart/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/beniimo_detail_banner.png" alt=""></a>
+              </div>
+            {% endif %}
+            {% if collection.handle  == 'sata-andagi' %}
+              <div class="banner">
+                <a href="/pages/okinawa-doughnut/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/andagi_detail_banner.png" alt=""></a>
+              </div>
+            {% endif %}
+            {% if collection.handle  == 'hateruma-kokuto' %}
+              <div class="banner">
+                <a href="/pages/kokuto/"><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/kokuto_detail_banner.png" alt=""></a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% comment %} <div class="banner">
+          <a href=""><img src="https://cdn.shopify.com/s/files/1/0628/4594/3865/files/beniimo_detail_banner.png" alt=""></a>
+        </div> {% endcomment %}
+
+        <div class="p-count">
+          <form method="post" action="/cart/add" id="AddToCartForm">
+            <input
+                type="hidden"
+                name="id"
+                value="{{ product.variants[0].id }}" />
+            <div class="product-quantity_wrapper">
+              <p class="c-ttl">購入数</p>
+              <div class="product-quantity">
+                <button type="button" id="minus" class="minus">ー</button>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                <button type="button" id="plus" class="plus">＋</button>
+              </div>
+            </div>
+            <div class="p-btn-wrapper">
+              <button type="submit" class="c-btn">カートに入れる</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="c-txt-inquiry"><a href="/pages/contact-form/">この商品について問い合わせる<span class="circle-icon"></span></a></div>
+
+        <table class="p-merchandise__infomation">
+          <tr>
+            {% if product.metafields.custom._capacity != blank %}
+              <th>内容量</th>
+              <td>{{ product.metafields.custom._capacity }}</td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if product.metafields.custom._best-before != blank %}
+              <th>賞味期限</th>
+              <td>{{ product.metafields.custom._best-before }}</td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if product.metafields.custom._preservation != blank %}
+              <th>保存方法</th>
+              <td>{{ product.metafields.custom._preservation }}</td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if product.metafields.custom._material != blank %}
+              <th>原材料</th>
+              <td>{{ product.metafields.custom._material }}</td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if product.metafields.custom._allergen != blank %}
+              <th>アレルゲン</th>
+              <td>{{ product.metafields.custom._allergen }}</td>
+            {% endif %}
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div><!-- /.inner -->
+</section><!-- /.p-item-detail_wrap -->
+</div><!-- /#contents-->
+
+
+{% schema %}
+  {
+    "name": "item-detail",
+    "presets": [
+      {
+        "name": "item-detail"
+      }
+    ]
+  }
+{% endschema %}
